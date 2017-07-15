@@ -10,6 +10,7 @@ const blogSchema = new mongoose.Schema({
 		required: 'Please enter a title',
 	},
 	slug: String,
+	body: String,
 	excerpt:{
 		type: String,
 		trim: true,
@@ -21,7 +22,7 @@ const blogSchema = new mongoose.Schema({
 	},
 	image: String
 
-});
+}, {'collection': 'Blog'});
 
 blogSchema.pre('save', function(next) {
 	if (!this.isModified('name')){
@@ -29,6 +30,12 @@ blogSchema.pre('save', function(next) {
 		return;
 	}
 	this.slug = slug(this.name);
+
+	if(!this.isModified('body')){
+		next();
+		return;
+	}
+	this.excerpt = this.body.slice(0,50);
 	next();
 });
 

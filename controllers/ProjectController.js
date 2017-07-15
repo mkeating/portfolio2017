@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const Project = mongoose.model('Project');
 
-exports.projectPage = (req, res) => {
+exports.getProjects = async (req, res) => {
 	
-	res.render('index', {title: 'projects'});
+	let projects = await Project.find();
+	console.log('getting projects');
+	console.log(projects);
+	res.render('index', {title: 'projects', projects});
 }
+

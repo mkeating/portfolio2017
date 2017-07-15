@@ -1,19 +1,30 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+
+const projectController = require('../controllers/projectController');
+const blogController = require('../controllers/blogController');
+
+const { catchErrors } = require('../handlers/errorHanlders');
 
 /* GET home */
-router.get('/', (req, res, next) => {
-  res.render('index', { title: 'mkeat' });
-});
+router.get('/', projectController.getProjects);
 
 /* GET blog */
-router.get('/blog', (req, res, next) => {
-	res.render('blog', { title: 'blog' });
-});
+router.get('/blog', blogController.getBlogs);
 
 /* GET me  */
 router.get('/me', (req, res, next) => {
 	res.render('me', { title: 'me' });
 });
+
+/* adding blog post */
+router.get('/addPost', blogController.addPost);
+router.post('/addPost', 
+	blogController.upload, 
+	catchErrors(blogController.createPost)
+);
+
+/* TODO: routes for editing posts */
+
 
 module.exports = router;

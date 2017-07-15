@@ -1,9 +1,10 @@
+const mongoose = require('mongoose');
+const Blog = mongoose.model('Blog');
 
-
-
-
-
-exports.blogPage = (req, res) => {
+exports.getBlogs = async (req, res) => {
 	
-	res.render('blog', {title: 'blog'});
+	const blogs = await Blog.find();
+	console.log('getting blogs');
+	console.log(blogs);
+	res.render('blog', {title: 'blog', blogs});
 }

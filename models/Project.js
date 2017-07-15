@@ -18,16 +18,16 @@ const projectSchema = new mongoose.Schema({
 	links:{
 		direct: String,
 		github: String
-	} 
+	}, 
 	created: {
 		type: Date, 
 		default: Date.now,
 	},
 	image: String
 
-});
+}, { collection: 'Project' });
 
-blogSchema.pre('save', function(next) {
+projectSchema.pre('save', function(next) {
 	if (!this.isModified('name')){
 		next();
 		return;
@@ -36,4 +36,4 @@ blogSchema.pre('save', function(next) {
 	next();
 });
 
-module.exports = mongoose.model('Blog', blogSchema);
+module.exports = mongoose.model('Project', projectSchema);

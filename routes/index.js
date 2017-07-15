@@ -4,7 +4,7 @@ const router = express.Router();
 const projectController = require('../controllers/projectController');
 const blogController = require('../controllers/blogController');
 
-const { catchErrors } = require('../handlers/errorHanlders');
+const { catchErrors } = require('../handlers/errorHandlers');
 
 /* GET home */
 router.get('/', projectController.getProjects);
@@ -18,11 +18,11 @@ router.get('/me', (req, res, next) => {
 });
 
 /* adding blog post */
-router.get('/addPost', blogController.addPost);
-router.post('/addPost', 
+//router.get('/blog/addPost', blogController.addPost);
+/*router.post('/addPost', 
 	blogController.upload, 
 	catchErrors(blogController.createPost)
-);
+);*/
 
 /* TODO: routes for editing posts */
 

@@ -1,0 +1,22 @@
+mixin blogForm(project = {})
+	form(action=`/addProject/` method='POST')
+		label(for='title') Title
+		input(type='text' name='title' value=project.title)
+
+		label(for='description') Description
+		textarea( name='description')
+
+
+		label(for='tools') Tools (separate by commas)
+		input(type='text' name='tools' value=project.tools)
+
+		label(for='directLink') Direct Link
+		input(type='text' name='directLink' value=project.links.direct)
+
+		label(for='github') Github
+		input(type='text' name='github' value=project.links.github)
+
+		label(for='image') image
+		input(type='text' name='image' value=project.image)
+
+		input(type='submit' value='Submit' class='button')

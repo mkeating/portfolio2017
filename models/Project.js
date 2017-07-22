@@ -28,11 +28,8 @@ const projectSchema = new mongoose.Schema({
 }, { collection: 'Project' });
 
 projectSchema.pre('save', function(next) {
-	if (!this.isModified('name')){
-		next();
-		return;
-	}
-	this.slug = slug(this.name);
+	
+	this.slug = slug(this.title);
 	next();
 });
 

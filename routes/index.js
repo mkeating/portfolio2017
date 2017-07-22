@@ -6,13 +6,14 @@ const blogController = require('../controllers/blogController');
 
 const { catchErrors } = require('../handlers/errorHandlers');
 
-/* GET home */
+/* GET home/projects */
 router.get('/', catchErrors(projectController.getProjects));
+//router.get('/', catchErrors(projectController.getProjects));
 
 /* GET blog */
 router.get('/blog', catchErrors(blogController.getBlogs));
 
-router.get('/blog/:id', catchErrors(blogController.getPost));
+router.get('/blog/:slug', catchErrors(blogController.getPost));
 
 /* GET me  */
 router.get('/me', (req, res, next) => {

@@ -12,13 +12,15 @@ router.get('/', projectController.getProjects);
 /* GET blog */
 router.get('/blog', blogController.getBlogs);
 
+router.get('/blog/:id', blogController.getPost);
+
 /* GET me  */
 router.get('/me', (req, res, next) => {
 	res.render('me', { title: 'me' });
 });
 
 /* adding blog post */
-//router.get('/blog/addPost', blogController.addPost);
+router.get('/blog/addPost', blogController.addPost);
 /*router.post('/addPost', 
 	blogController.upload, 
 	catchErrors(blogController.createPost)

@@ -21,11 +21,14 @@ router.get('/me', (req, res, next) => {
 });
 
 /* adding blog post */
-router.get('/addPost', catchErrors(blogController.addPost));
+router.get('/add-post', catchErrors(blogController.addPost));
 
-router.post('/addPost', 
+router.post('/add-post', 
 	catchErrors(blogController.createPost)
 );
+
+/* adding project */
+router.get('/add-project', catchErrors(projectController.addProject));
 
 /* GET individual projects */
 router.get('/:slug', catchErrors(projectController.getProject));

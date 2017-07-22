@@ -17,3 +17,7 @@ exports.getProject = async (req, res) => {
 	console.log(project);
 	res.render('project', {project});
 }
+
+exports.addProject = (req, res) => {
+	res.render('addProject', {});
+}

@@ -27,6 +27,10 @@ router.post('/addPost',
 	catchErrors(blogController.createPost)
 );
 
+/* GET individual projects */
+router.get('/:slug', catchErrors(projectController.getProject));
+
+
 /* TODO: routes for editing posts */
 
 

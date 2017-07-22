@@ -11,7 +11,9 @@ exports.getProjects = async (req, res) => {
 
 
 exports.getProject = async (req, res) => {
-	let project = await Project.findOne({id:res.params.id});
 
+	let project = await Project.findOne({slug:req.params.slug});
+
+	console.log(project);
 	res.render('project', {project});
 }

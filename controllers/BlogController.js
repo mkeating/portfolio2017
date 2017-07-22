@@ -10,18 +10,21 @@ exports.getBlogs = async (req, res) => {
 }
 
 exports.getPost = async (req, res) => {
+
+	console.log(`finding id: ${req.params.id}`);
 	const post = await Blog.findOne({_id: req.params.id});
 
 	res.render('blogPost', {post});
 }
 
 exports.addPost = (req, res) => {
+	console.log('hitting addPost');
 	res.render('postBlog', {title: 'Post new blog'});
 }
-/*
+
 exports.createPost = async (req, res) => {
 	const post = await (new Blog(req.body)).save();
 	await post.save();
-	req.flash('success', `Success`);
-	res.redirect(`/blog/${post.slug}`);
-}*/
+	//req.flash('success', `Success`);
+	res.redirect(`/blog/${post._id}`);
+}

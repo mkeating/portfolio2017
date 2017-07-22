@@ -1,4 +1,4 @@
 mixin blogPreview(blog = {})
     .blogPreview
         a(href=`/blog/${blog._id}`) #{blog.title}
-        p #{blog.body}
+        p #{blog.excerpt}

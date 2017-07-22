@@ -7,12 +7,12 @@ const blogController = require('../controllers/blogController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 /* GET home */
-router.get('/', projectController.getProjects);
+router.get('/', catchErrors(projectController.getProjects));
 
 /* GET blog */
-router.get('/blog', blogController.getBlogs);
+router.get('/blog', catchErrors(blogController.getBlogs));
 
-router.get('/blog/:id', blogController.getPost);
+router.get('/blog/:id', catchErrors(blogController.getPost));
 
 /* GET me  */
 router.get('/me', (req, res, next) => {
@@ -20,11 +20,11 @@ router.get('/me', (req, res, next) => {
 });
 
 /* adding blog post */
-router.get('/blog/addPost', blogController.addPost);
-/*router.post('/addPost', 
-	blogController.upload, 
+router.get('/addPost', catchErrors(blogController.addPost));
+
+router.post('/addPost', 
 	catchErrors(blogController.createPost)
-);*/
+);
 
 /* TODO: routes for editing posts */
 

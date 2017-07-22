@@ -25,16 +25,10 @@ const blogSchema = new mongoose.Schema({
 }, {'collection': 'Blog'});
 
 blogSchema.pre('save', function(next) {
-	if (!this.isModified('name')){
-		next();
-		return;
-	}
-	this.slug = slug(this.name);
+	
 
-	if(!this.isModified('body')){
-		next();
-		return;
-	}
+	this.slug = slug(this.title);
+
 	this.excerpt = this.body.slice(0,50);
 	next();
 });

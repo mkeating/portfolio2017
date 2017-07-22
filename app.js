@@ -34,25 +34,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
-app.use(session({
+/*app.use(session({
 	secret: process.env.SECRET,
 	key: process.env.KEY,
 	resave: false,
 	saveUninitialized: false,
 	store: new MongoStore({ mongooseConnection: mongoose.connection})
-}));
+}));*/
 
-app.use(flash());
+//app.use(flash());
 
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
 	res.locals.flashes = req.flash();
-});
+});*/
 
 app.use('/', routes);
 app.use('/users', users);
 
 app.use(errorHandlers.notFound);
-app.use(errorHandlers.flashValidationErrors);
+//app.use(errorHandlers.flashValidationErrors);
 
 if(app.get('env') === 'development') {
 	app.use(errorHandlers.developmentErrors);

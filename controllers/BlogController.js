@@ -8,7 +8,7 @@ exports.getBlogs = async (req, res) => {
 	console.log(blogs);
 	res.render('blog', {title: 'blog', blogs});
 }
-
+/*
 exports.addPost = (req, res) => {
 	res.render('postBlog', {title: 'Post new blog'});
 }
@@ -18,4 +18,4 @@ exports.createPost = async (req, res) => {
 	await post.save();
 	req.flash('success', `Success`);
 	res.redirect(`/blog/${post.slug}`);
-}
+}*/

@@ -15,13 +15,13 @@ exports.notFound = (req, res, next) => {
 
 //MongoDB validation errors
 
-exports.flashValidationErrors = (err, req, res, next) =>{
+/*exports.flashValidationErrors = (err, req, res, next) =>{
 	if(!err.errors) return next(err);
 
 	const errorKeys = Object.keys(err.errors);
 	errorKeys.forEach(key => req.flash('error', err.errors[key].message));
 	res.redirect('back');
-};
+};*/
 
 //dev errors
 exports.developmentErrors = (err, req, res, next) => {

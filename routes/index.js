@@ -29,6 +29,8 @@ router.post('/add-post',
 
 /* adding project */
 router.get('/add-project', catchErrors(projectController.addProject));
+router.post('/add-project', catchErrors(projectController.createProject));
+
 
 /* GET individual projects */
 router.get('/:slug', catchErrors(projectController.getProject));

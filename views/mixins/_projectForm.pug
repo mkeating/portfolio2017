@@ -1,5 +1,5 @@
 mixin projectForm(project = {})
-	form(action=`/addProject/` method='POST')
+	form(action=`/add-project/` method='POST')
 		label(for='title') Title
 		input(type='text' name='title' value=project.title)
 
@@ -10,11 +10,11 @@ mixin projectForm(project = {})
 		label(for='tools') Tools (separate by commas)
 		input(type='text' name='tools' value=project.tools)
 
-		//-label(for='directLink') Direct Link
-		//-input(type='text' name='directLink' value=project.links.direct)
+		label(for='directLink') Direct Link
+		input(type='text' name='directLink' value=project.directLink)
 
-		//-label(for='github') Github
-		//-input(type='text' name='github' value=project.links.github)
+		label(for='github') Github
+		input(type='text' name='github' value=project.githubLink)
 
 		label(for='image') image
 		input(type='text' name='image' value=project.image)

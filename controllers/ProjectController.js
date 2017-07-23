@@ -21,3 +21,10 @@ exports.getProject = async (req, res) => {
 exports.addProject = (req, res) => {
 	res.render('addProject', {});
 }
+
+exports.createProject = async (req, res) => {
+	const project = await (new Project(req.body)).save();
+	await project.save();
+
+	res.redirect(`/${project.slug}`);
+}

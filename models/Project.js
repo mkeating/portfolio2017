@@ -15,10 +15,11 @@ const projectSchema = new mongoose.Schema({
 		trim: true,
 	}, 
 	tools: [String],
-	links:{
-		direct: String,
-		github: String
-	}, 
+
+	directLink: String,
+	
+	githubLink: String, 
+	
 	created: {
 		type: Date, 
 		default: Date.now,

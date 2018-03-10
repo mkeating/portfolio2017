@@ -1,13 +1,11 @@
-const express = require('express');
-const router = express.Router();
+const express 	= require('express');
+const router 	= express.Router();
 
 const projectController = require('../controllers/projectController');
-const blogController = require('../controllers/blogController');
-const userController = require('../controllers/userController');
-const authController = require('../controllers/authController');
-
-
-const { catchErrors } = require('../handlers/errorHandlers');
+const blogController 	= require('../controllers/blogController');
+const userController 	= require('../controllers/userController');
+const authController 	= require('../controllers/authController');
+const { catchErrors } 	= require('../handlers/errorHandlers');
 
 /* GET home/projects */
 router.get('/', catchErrors(projectController.getProjects));
@@ -51,8 +49,4 @@ router.get('/:slug', catchErrors(projectController.getProject));
 
 
 /* TODO: routes for editing posts */
-
-
-
-
 module.exports = router;

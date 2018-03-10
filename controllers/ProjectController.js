@@ -4,6 +4,7 @@ const Project = mongoose.model('Project');
 exports.getProjects = async (req, res) => {
 	
 	let projects = await Project.find();
+	console.log(req.user);
 	res.render('index', {title: 'projects', projects});
 }
 

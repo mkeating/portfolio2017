@@ -11,6 +11,7 @@ const passport = require('passport');
 const promisify = require('es6-promisify');
 const flash = require('connect-flash');
 const expressValidator = require('express-validator');
+const sassMiddleware = require('node-sass-middleware')
 
 
 const routes = require('./routes');
@@ -19,6 +20,14 @@ const errorHandlers = require('./handlers/errorHandlers');
 require('./handlers/passport.js');
 
 const app = express();
+
+app.use(sassMiddleware({
+  src: path.join(__dirname, 'sass'),
+  dest: path.join(__dirname, 'public/stylesheets'),
+  indentedSyntax: false, // true = .sass and false = .scss
+  sourceMap: true,
+  debug: true,
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -54,6 +63,14 @@ app.use(flash());
 /*app.use((req, res, next) => {
 	res.locals.flashes = req.flash();
 });*/
+
+
+
+
+app.use((req, res, next) => {
+	res.locals.user = req.user || null;
+	next();
+});
 
 app.use('/', routes);
 app.use('/users', users);

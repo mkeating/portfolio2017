@@ -1,7 +1,25 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        main
+            nav.nav
+                h1 MKEAT
+                .nav-items
+                    ul
+                        each item in h.menu
+                            li
+                                a(href=item.slug)
+                                    span #{item.title}
+                .social
+                    ul
+                        li
+                            a(href="")
+                                        span LinkedIn
+                        li
+                            a(href="")
+                                        span Github
+            .content
+                block content

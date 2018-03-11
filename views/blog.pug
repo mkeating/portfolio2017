@@ -4,8 +4,6 @@ include mixins/_blogPreview
 
 block content
 	h1= title
-	p Welcome to #{title}
-	p This is blog view
 	.blogs
 		each blog in blogs
 			+blogPreview(blog)

@@ -11,7 +11,8 @@ const passport = require('passport');
 const promisify = require('es6-promisify');
 const flash = require('connect-flash');
 const expressValidator = require('express-validator');
-const sassMiddleware = require('node-sass-middleware')
+const sassMiddleware = require('node-sass-middleware');
+const helpers = require('./helpers');
 
 
 const routes = require('./routes');
@@ -27,6 +28,7 @@ app.use(sassMiddleware({
   indentedSyntax: false, // true = .sass and false = .scss
   sourceMap: true,
   debug: true,
+  force: true,
 }));
 
 // view engine setup
@@ -68,6 +70,7 @@ app.use(flash());
 
 
 app.use((req, res, next) => {
+	res.locals.h = helpers;
 	res.locals.user = req.user || null;
 	next();
 });

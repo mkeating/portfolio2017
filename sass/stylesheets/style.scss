@@ -39,6 +39,7 @@ main {
 		background: $main-color;
 		flex: 0 0 300px;
 		display: inherit;
+		transition: all .5s;
 		flex-direction: column;
 		color: $off-color;
 		a {
@@ -106,108 +107,6 @@ main {
 		padding: 10%;
 
 	}
-}
-
-.nav-trigger {
-	top: 18px;
-	right: 5%;
-	height: 44px;
-	width: 44px;
-	z-index: 5;
-	overflow: hidden;
-	text-indent: 100%;
-	white-space: nowrap;
-}
-
-.overlay-nav, .overlay-nav-content {
-	position: fixed;
-	top: 18px;
-	right: 5%;
-	height: 4px;
-	width: 4px;
-	transform: translateX(-20px) translateY(20px);
-}
-
-.overlay-nav span, .overlay-content span {
-	display: inline-block;
-	position: absolute;
-	border-radius: 50%;
-	will-change: transform;
-	transform: scale(0);
-}
-
-.nav-trigger .icon {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	bottom: auto;
-	right: auto;
-	transform: translateX(-50%) translateY(-50%);
-	display:inline-block;
-	width: 18px;
-	height: 3px;
-	background-color: #fff;
-	z-index: 10;
-}
-
-.nav-trigger .icon::before, .nav-trigger .icon::after{
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	background-color: inherit; 
-	transition: transform .3s;
-}
-
-.nav-trigger .icon::before {
-	transform: translateY(6px) rotate(0deg);
-}
-
-.nav-trigger.close-nav .icon {
-	background-color: rgba(255, 255, 255, 0);
-}
-
-.nav-trigger.close-nav .icon::before, .nav-trigger.close-nav .icon::after {
-	background-color: white;
-}
-
-.nav-trigger.close-nav .icon::before {
-	transform: translateY(0) rotate(45deg);
-}
-
-.nav-trigger.close-nav .icon::after {
-	transform: translateY(0) rotate(-45deg);
-}
-
-.nav-trigger::before, .nav-trigger::after {
-	position: absolute;
-	top: 0;
-	left: 0;
-	border-radius: 50%;
-	height: 100%;
-	width: 100%;
-	transition-property: transform;
-}
-
-.nav-trigger::before {
-	background-color: #091d23;
-	transform: scale(1);
-	transition-duration: 0.3s;
-	transition-delay: 0.4s;
-}
-
-.nav-trigger::after {
-	background-color: #ffb441;
-	transform: scale(0);
-	transition-duration: 0s;
-	transition-delay: 0s;
-}
-
-.nav-trigger.close-nav::after {
-	transform: scale(1);
-	transition-duration: 0.3s;
-	transition-delay: 0.4s;
 }
 
 .page-title {
@@ -331,27 +230,54 @@ main {
 @media #{$tablet} {
 
 	.mobile-nav-button{
-	 	display: block;
+	 display: block;
 	  position: absolute;
-	  z-index: 1;
+	  z-index: 10;
 	  bottom: 0;
 	  left: 0;
 	 background: $main-color;
 	 color: $off-color;
 	 width: 100%;
 	  height: 4em;
+	  padding-top: 6px;
+	}
+
+	.bar1, .bar2, .bar3 {
+	    width: 35px;
+	    height: 5px;
+	    background-color: $off-color;
+	    margin: 6px auto;
+	    transition: 0.4s;
+	    border-radius: 2px;
 
 	}
+
 	.nav {
-		display:block;
+	display: flex;
 	  position: absolute;
 	  z-index: 1;
-	  bottom: 0;
+	  bottom: 50px;
 	  left: 0;
 	 background: $main-color;
 	 color: $off-color;
 	 width: 100%;
-	  height: 100%;
+	  height: 0;
+	
+	  h1{
+	  	display: none;
+	  }
+
+	  .nav-list{
+	  	display: none
+	  }
+	}
+
+	.deployed {
+		height: calc(100% - 50px);
+	
+		.nav-list {
+			display: block;
+		}
 	}
 }
 

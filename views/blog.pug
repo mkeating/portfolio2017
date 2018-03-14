@@ -3,7 +3,7 @@ extends layout
 include mixins/_blogPreview
 
 block content
-	h1= title
+	h1.page-title= title
 	.blogs
 		each blog in blogs
 			+blogPreview(blog)

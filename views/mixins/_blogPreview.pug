@@ -1,4 +1,6 @@
 mixin blogPreview(blog = {})
-    .blogPreview
-        a(href=`/blog/${blog.slug}`) #{blog.title}
-        p #{blog.excerpt}
+	a(href=`/blog/${blog.slug}`, class='blog-preview-link')
+		.blog-preview
+			.blog-preview-top #{blog.title} 
+				.blog-preview-date #{blog.created}
+			.blog-preview-bottom #{blog.excerpt}

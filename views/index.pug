@@ -3,11 +3,10 @@ extends layout
 include mixins/_projectCard
 
 block content
-    h1= title
+    h1.page-title= title
     if user
         p hi #{user.name}
-    p Welcome to #{title}
-        .projects
-            each project in projects
-                +projectCard(project)
+    .projects
+        each project in projects
+            +projectCard(project)
 

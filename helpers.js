@@ -1,5 +1,5 @@
 exports.menu = [
-	{ slug: '/', title: 'Projects' },
-  	{ slug: '/blog', title: 'Blog',  },
-  	{ slug: '/me', title: 'Me', },
+	{ slug: '/', title: 'work' },
+  	{ slug: '/blog', title: 'blog',  },
+  	{ slug: '/me', title: 'me', },
 ];

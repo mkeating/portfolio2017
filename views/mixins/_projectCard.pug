@@ -1,3 +1,6 @@
 mixin projectCard(project = {})
-    .project
-        a(href= `/${project.slug}`) #{project.title}
+	a(href= `/${project.slug}`, class='project-preview-link') 
+		div(class='project-preview', id=`${project.title}`)
+			.project-preview-top
+			.project-preview-bottom 
+				h2 #{project.title}

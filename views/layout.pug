@@ -3,23 +3,37 @@ html
     head
         title= title
         link(rel='stylesheet', href='/stylesheets/style.css')
+
+        link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+
+        script(src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
+
+        script(src='//cdn.jsdelivr.net/npm/velocity-animate@1.5/velocity.min.js')
+
+        script(src='/javascripts/nav.js')
+
+        meta(name='viewport' content='width=device-width, initial-scale=1')
     body
         main
             nav.nav
-                h1 MKEAT
+                a(href='/')
+                    h1 MICHAEL KEATING
                 .nav-items
-                    ul
+                    ul.nav-list
                         each item in h.menu
-                            li
-                                a(href=item.slug)
+                            a(href=item.slug)
+                                li
                                     span #{item.title}
                 .social
                     ul
                         li
                             a(href="")
-                                        span LinkedIn
+                                i.fa.fa-github
+                                        
                         li
                             a(href="")
-                                        span Github
+                                i.fa.fa-linkedin
             .content
                 block content
+            
+

@@ -29,7 +29,7 @@ blogSchema.pre('save', function(next) {
 
 	this.slug = slug(this.title);
 
-	this.excerpt = this.body.slice(0,50);
+	this.excerpt = `${this.body.slice(0,300)}...`;
 	next();
 });
 

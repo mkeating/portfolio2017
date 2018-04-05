@@ -3,5 +3,6 @@ extends layout
 block content
 	h1 #{post.title}
 	p #{post.created}
-	p #{post.body}
+	pre
+		p !{post.body}
 	

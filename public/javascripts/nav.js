@@ -7,12 +7,12 @@ window.onload = () => {
 	let menuUp = false;
 	mobileNavButton.addEventListener('click', (e) =>{
 		if(!menuUp){
-			console.log('deploying menu');
-		
-			nav.classList.add('deployed');
+			nav.classList.toggle('deployed');
+			mobileNavButton.classList.toggle('change');
 		} else {
-			console.log('putting menu away');
-			nav.classList.remove('deployed');
+			nav.classList.toggle('deployed');
+			mobileNavButton.classList.toggle('change');
+
 		}
 
 		menuUp = !menuUp;
